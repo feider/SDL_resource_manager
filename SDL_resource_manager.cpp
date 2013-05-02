@@ -30,7 +30,10 @@ int SDL::ResourceManager::loadDirectory(std::string path)
 
 	if(!exists(dir_path))
 		return -1;
+
 	bfs::directory_iterator end_iter; // default construction yields past-the-end
+
+	int count = 0;
 	for(bfs::directory_iterator iter(dir_path); iter != end_iter; iter++)
 	{
 		std::string name(iter->path().filename().string());
@@ -46,10 +49,11 @@ int SDL::ResourceManager::loadDirectory(std::string path)
 		else
 		{
 			images.insert( std::pair<std::string, SDL_Surface*> ( name, temp ) );
+			count++;
 			//std::cout<<"done"<<std::endl;
 		}
 	}
-	return true;
+	return count;
 }
 
 bool SDL::ResourceManager::loadImage(std::string path)

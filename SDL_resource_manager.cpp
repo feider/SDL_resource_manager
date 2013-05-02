@@ -46,3 +46,8 @@ bool SDL::ResourceManager::loadImage(std::string path)
 	images.insert( std::pair<std::string, SDL_Surface*> ( name, temp ) );
 	return true;
 }
+
+SDL_Surface * SDL::ResourceManager::operator()(std::string image_name)
+{
+	return images[image_name];
+}

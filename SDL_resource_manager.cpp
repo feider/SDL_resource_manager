@@ -17,19 +17,19 @@ bool SDL::ResourceManager::loadDirectory(std::string path)
 	for(bfs::directory_iterator iter(dir_path); iter != end_iter; iter++)
 	{
 		std::string name(iter->path().filename().string());
-		std::cout<<"loading "<< path << "/"<< name<<"...\t";
+		//std::cout<<"loading "<< path << "/"<< name<<"...\t";
 
 		std::string load = path + "/" + name;
 		SDL_Surface * temp = IMG_Load(load.c_str());
 
 		if(NULL == temp)
 		{
-			std::cout<<"failed"<<std::endl;
+			//std::cout<<"failed"<<std::endl;
 		}
 		else
 		{
 			images.insert( std::pair<std::string, SDL_Surface*> ( name, temp ) );
-			std::cout<<"done"<<std::endl;
+			//std::cout<<"done"<<std::endl;
 		}
 	}
 	return true;

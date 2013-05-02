@@ -5,14 +5,31 @@
 #include <iostream>
 namespace bfs = boost::filesystem;
 
+SDL::ResourceManager::ResourceManager()
+{
+	;
+}
 
+SDL::ResourceManager::ResourceManager(std::string path)
+{
+	this->loadDirectory(path);
+}
 
-bool SDL::ResourceManager::loadDirectory(std::string path)
+SDL::ResourceManager::~ResourceManager()
+{
+	std::map<std::string, SDL_Surface*>::iterator iter;
+	for(iter = images.begin(); iter!=images.end(); iter++)
+	{
+		delete(iter->second);
+	}
+}
+
+int SDL::ResourceManager::loadDirectory(std::string path)
 {
 	bfs::path dir_path(path);
 
 	if(!exists(dir_path))
-		return false;
+		return -1;
 	bfs::directory_iterator end_iter; // default construction yields past-the-end
 	for(bfs::directory_iterator iter(dir_path); iter != end_iter; iter++)
 	{

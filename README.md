@@ -21,10 +21,11 @@ How to link to your project
 
 Link to SDL_resource_manager,
 
-also link against boost_system, libboost_filesystem, SDL and SDL_image
+
+also link against boost_system, libboost_filesystem and SDL_image
 
 Example:
-	g++ foo.cpp -lSDL_resouce_manager -lboost_system -lboost_filesystem -lSDL -lSDL_image -o bar
+	g++ foo.cpp -lSDL_resouce_manager -lboost_system -lboost_filesystem `sdl-config --cflags` -lSDL_image -o bar
 
 
 How to build

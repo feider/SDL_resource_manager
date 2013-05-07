@@ -20,7 +20,9 @@ How to link to your project
 ---------------------------
 
 Link to SDL_resource_manager,
+
 also link against boost_system, libboost_filesystem, SDL and SDL_image
+
 Example:
 	g++ foo.cpp -lSDL_resouce_manager -lboost_system -lboost_filesystem -lSDL -lSDL_image -o bar
 

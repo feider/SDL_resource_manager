@@ -1,4 +1,4 @@
-#include "SDL_resource_manager.h"
+#include <SDL_resource_manager.h>
 #include <boost/filesystem.hpp>
 #include <SDL/SDL_image.h>
 #include <SDL/SDL_mixer.h>
@@ -48,7 +48,7 @@ int SDL::ResourceManager::loadDirectory(std::string path)
 		}
 		else
 		{
-			images.insert( std::pair<std::string, SDL_Surface*> ( name, temp ) );
+			images[name] = temp;
 			count++;
 			//std::cout<<"done"<<std::endl;
 		}
@@ -64,7 +64,7 @@ bool SDL::ResourceManager::loadImage(std::string path)
 		return false;
 	}
 	std::string name(path.substr(path.find_last_of("/")));
-	images.insert( std::pair<std::string, SDL_Surface*> ( name, temp ) );
+	images[name] = temp;
 	return true;
 }
 

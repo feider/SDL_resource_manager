@@ -1,4 +1,4 @@
-#include <SDL_resource_manager.h>
+#include "SDL_resource_manager.h"
 #include <boost/filesystem.hpp>
 #include <SDL/SDL_image.h>
 #include <SDL/SDL_mixer.h>
